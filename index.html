@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY GAME CENTRE - Play Online Arcade Games</title>
+    <meta name="description" content="MY GAME CENTRE is a premium arcade portal featuring Advanced Tic-Tac-Toe with custom boards, classic neon Snake, and Rock Paper Scissors with local multiplayer.">
+    <!-- Google Fonts for Gaming / Futuristic UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-container">
+        <!-- TOP NAVIGATION BAR -->
+        <header class="navbar">
+            <div class="nav-brand">
+                <a href="#home" class="brand-link nav-link" data-view="home" aria-label="MY GAME CENTRE Home">
+                    <span class="brand-icon">🎮</span>
+                    <span class="brand-text">MY GAME CENTRE</span>
+                </a>
+            </div>
+
+            <nav class="nav-menu" aria-label="Main Navigation">
+                <button class="nav-link active" data-view="home" type="button">Home</button>
+                <button class="nav-link" data-view="tictactoe" type="button">Tic-Tac-Toe</button>
+                <button class="nav-link" data-view="snake" type="button">Snake</button>
+                <button class="nav-link" data-view="rps" type="button">Rock Paper Scissors</button>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="sound-toggle-btn" class="action-btn" type="button" aria-label="Toggle Sound Effects">
+                    <span class="icon">🔊</span>
+                    <span class="btn-text">Sound: ON</span>
+                </button>
+                <button id="stats-modal-btn" class="action-btn" type="button" aria-label="View All-Time Gaming Stats">
+                    <span class="icon">📊</span>
+                    <span class="btn-text">Stats</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN VIEWS CONTAINER (SPA) -->
+        <main class="main-content">
+            
+            <!-- VIEW 1: HOMEPAGE / DASHBOARD -->
+            <section id="view-home" class="view-section active">
+                <!-- Hero Section -->
+                <div class="hero-banner">
+                    <div class="hero-badge">⚡ PREMIUM WEB GAMING PORTAL</div>
+                    <h1 class="hero-title">WELCOME TO <span class="neon-glow">MY GAME CENTRE</span></h1>
+                    <p class="hero-subtitle">
+                        Experience thrilling classic games re-imagined with custom boards, intelligent AI opponents,
+                        and smooth local multiplayer on any device.
+                    </p>
+                    <div class="hero-stats-strip">
+                        <div class="quick-stat">
+                            <span class="qs-num">3</span>
+                            <span class="qs-label">Arcade Games</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="qs-num">100%</span>
+                            <span class="qs-label">Offline & Free</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="qs-num">8×8+</span>
+                            <span class="qs-label">Custom Boards</span>
+                        </div>
+                        <div class="quick-stat">
+                            <span class="qs-num">2-Player</span>
+                            <span class="qs-label">Pass & Play</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Cards Grid -->
+                <div class="games-section-header">
+                    <h2>CHOOSE YOUR GAME</h2>
+                    <p>Select a title below to start playing immediately</p>
+                </div>
+
+                <div class="games-grid">
+                    <!-- Game Card 1: Tic-Tac-Toe -->
+                    <article class="game-card card-tictactoe">
+                        <div class="card-glow"></div>
+                        <div class="card-badge">STRATEGY</div>
+                        <div class="card-icon-wrapper">
+                            <span class="game-avatar">❌⭕</span>
+                        </div>
+                        <h3 class="card-title">Tic-Tac-Toe</h3>
+                        <p class="card-desc">
+                            Next-gen Tic-Tac-Toe with selectable boards from 3×3 up to 8×8 and custom grid sizes.
+                            Challenge our responsive AI or compete against a friend on the same device!
+                        </p>
+                        <div class="card-features">
+                            <span>✨ 3×3 to 8×8 Grids</span>
+                            <span>🤖 Smart AI & 2-Player</span>
+                            <span>🎯 Custom Win Rules</span>
+                        </div>
+                        <button class="btn btn-primary" data-play-game="tictactoe" type="button">
+                            <span>PLAY TIC-TAC-TOE</span>
+                            <span class="btn-arrow">➔</span>
+                        </button>
+                    </article>
+
+                    <!-- Game Card 2: Snake -->
+                    <article class="game-card card-snake">
+                        <div class="card-glow"></div>
+                        <div class="card-badge">ARCADE</div>
+                        <div class="card-icon-wrapper">
+                            <span class="game-avatar">🐍</span>
+                        </div>
+                        <h3 class="card-title">Snake</h3>
+                        <p class="card-desc">
+                            The timeless arcade phenomenon built with neon aesthetics. Slither through the arena,
+                            munch red apples and golden stars, navigate wall traps, and break high scores!
+                        </p>
+                        <div class="card-features">
+                            <span>⭐ Golden Bonus Food</span>
+                            <span>⚡ Progressive Speed</span>
+                            <span>📱 Touch D-Pad & Swipes</span>
+                        </div>
+                        <button class="btn btn-primary" data-play-game="snake" type="button">
+                            <span>PLAY SNAKE</span>
+                            <span class="btn-arrow">➔</span>
+                        </button>
+                    </article>
+
+                    <!-- Game Card 3: Rock Paper Scissors -->
+                    <article class="game-card card-rps">
+                        <div class="card-glow"></div>
+                        <div class="card-badge">CLASSIC DUEL</div>
+                        <div class="card-icon-wrapper">
+                            <span class="game-avatar">✊✋✌️</span>
+                        </div>
+                        <h3 class="card-title">Rock Paper Scissors</h3>
+                        <p class="card-desc">
+                            Face off in high-stakes duels! Test your wits against the computer or pass your phone
+                            or laptop to a friend using our secret-handover local two-player mode.
+                        </p>
+                        <div class="card-features">
+                            <span>🔒 Secret Handover Mode</span>
+                            <span>🤖 vs Computer</span>
+                            <span>⚔️ Battle Animations</span>
+                        </div>
+                        <button class="btn btn-primary" data-play-game="rps" type="button">
+                            <span>PLAY RPS</span>
+                            <span class="btn-arrow">➔</span>
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+
+            <!-- VIEW 2: ADVANCED TIC-TAC-TOE -->
+            <section id="view-tictactoe" class="view-section hidden">
+                <div class="game-header-bar">
+                    <button class="btn btn-secondary btn-home-nav" type="button">
+                        <span>🏠 Home</span>
+                    </button>
+                    <h2 class="game-header-title">ADVANCED TIC-TAC-TOE</h2>
+                    <button class="btn btn-secondary" data-rules-for="tictactoe" type="button">
+                        <span>ℹ️ How to Play</span>
+                    </button>
+                </div>
+
+                <!-- Game Controls & Settings -->
+                <div class="game-dashboard">
+                    <!-- Mode Selector -->
+                    <div class="setting-group">
+                        <label class="setting-label">Game Mode:</label>
+                        <div class="button-toggle-group">
+                            <button id="ttt-mode-pvc" class="toggle-btn active" type="button">vs Computer</button>
+                            <button id="ttt-mode-pvp" class="toggle-btn" type="button">Two Players</button>
+                        </div>
+                    </div>
+
+                    <!-- Board Size Selector -->
+                    <div class="setting-group">
+                        <label for="ttt-size-select" class="setting-label">Board Size:</label>
+                        <select id="ttt-size-select" class="styled-select">
+                            <option value="3" selected>3×3 (Classic)</option>
+                            <option value="4">4×4 (Connect 4)</option>
+                            <option value="5">5×5 (Connect 5)</option>
+                            <option value="6">6×6 (Connect 6)</option>
+                            <option value="7">7×7 (Connect 7)</option>
+                            <option value="8">8×8 (Connect 8)</option>
+                            <option value="custom">Custom Size...</option>
+                        </select>
+                    </div>
+
+                    <!-- Custom Settings Panel (hidden by default) -->
+                    <div id="ttt-custom-settings" class="custom-settings-row hidden">
+                        <div class="custom-input-box">
+                            <label for="ttt-custom-size">Grid Size (3–10):</label>
+                            <input type="number" id="ttt-custom-size" min="3" max="10" value="5" class="styled-input">
+                        </div>
+                        <div class="custom-input-box">
+                            <label for="ttt-custom-win">Win Streak Length:</label>
+                            <input type="number" id="ttt-custom-win" min="3" max="10" value="4" class="styled-input">
+                        </div>
+                        <button id="ttt-apply-custom" class="btn btn-accent btn-small" type="button">Apply Grid</button>
+                    </div>
+                </div>
+
+                <!-- Info Banner (Active size & win condition) -->
+                <div id="ttt-info-banner" class="info-pill-banner">
+                    Board: 3×3 | Win Condition: Connect 3 in a row
+                </div>
+
+                <!-- Scoreboard -->
+                <div class="scoreboard-container">
+                    <div class="score-card player-card">
+                        <span id="ttt-score-label-1" class="score-name">YOU (X)</span>
+                        <span id="ttt-score-val-1" class="score-digits">0</span>
+                    </div>
+                    <div class="score-card draw-card">
+                        <span class="score-name">DRAWS</span>
+                        <span id="ttt-score-val-draws" class="score-digits">0</span>
+                    </div>
+                    <div class="score-card opponent-card">
+                        <span id="ttt-score-label-2" class="score-name">COMPUTER (O)</span>
+                        <span id="ttt-score-val-2" class="score-digits">0</span>
+                    </div>
+                </div>
+
+                <!-- Turn Indicator -->
+                <div id="ttt-turn-indicator" class="turn-status-banner">
+                    <span class="badge player-x">X</span> Your Turn
+                </div>
+
+                <!-- Dynamic Game Board Area -->
+                <div class="board-wrapper">
+                    <div id="ttt-board" class="ttt-grid-container" role="grid" aria-label="Tic-Tac-Toe Board">
+                        <!-- Dynamic cells rendered by JS -->
+                    </div>
+
+                    <!-- Win / Result Overlay -->
+                    <div id="ttt-result-overlay" class="game-modal-overlay hidden">
+                        <div class="modal-card result-dialog">
+                            <h3 id="ttt-result-title" class="result-title result-win">YOU WON!</h3>
+                            <p id="ttt-result-message" class="result-message">Congratulations! You connected 3 symbols in a row!</p>
+                            <div class="modal-actions">
+                                <button id="ttt-result-play-again" class="btn btn-primary" type="button">Play Again</button>
+                                <button class="btn btn-secondary btn-home-nav" type="button">Home</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Controls Toolbar -->
+                <div class="game-action-toolbar">
+                    <button id="ttt-restart-btn" class="btn btn-primary" type="button">
+                        <span>🔄 Restart Match</span>
+                    </button>
+                    <button id="ttt-reset-scores-btn" class="btn btn-danger" type="button">
+                        <span>🗑️ Reset Scores</span>
+                    </button>
+                </div>
+            </section>
+
+
+            <!-- VIEW 3: SNAKE ARCADE -->
+            <section id="view-snake" class="view-section hidden">
+                <div class="game-header-bar">
+                    <button class="btn btn-secondary btn-home-nav" type="button">
+                        <span>🏠 Home</span>
+                    </button>
+                    <h2 class="game-header-title">SNAKE ARCADE</h2>
+                    <button class="btn btn-secondary" data-rules-for="snake" type="button">
+                        <span>ℹ️ How to Play</span>
+                    </button>
+                </div>
+
+                <!-- Snake Scoreboard -->
+                <div class="scoreboard-container">
+                    <div class="score-card">
+                        <span class="score-name">CURRENT SCORE</span>
+                        <span id="snake-current-score" class="score-digits">0</span>
+                    </div>
+                    <div class="score-card highlight-glow">
+                        <span class="score-name">🏆 HIGH SCORE</span>
+                        <span id="snake-high-score" class="score-digits">0</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Wrapper with Overlays -->
+                <div class="canvas-container">
+                    <canvas id="snake-canvas" width="440" height="440" aria-label="Snake Game Arena" tabindex="0"></canvas>
+
+                    <!-- Start Overlay -->
+                    <div id="snake-start-overlay" class="canvas-overlay">
+                        <div class="overlay-inner">
+                            <span class="overlay-icon">🐍</span>
+                            <h3>SNAKE ARCADE</h3>
+                            <p>Eat neon apples to grow, avoid walls and your own tail!</p>
+                            <p class="key-hint">Use Arrow Keys, WASD, or On-Screen D-Pad</p>
+                            <button id="snake-overlay-start-btn" class="btn btn-primary btn-large" type="button">START GAME</button>
+                        </div>
+                    </div>
+
+                    <!-- Pause Overlay -->
+                    <div id="snake-pause-overlay" class="canvas-overlay hidden">
+                        <div class="overlay-inner">
+                            <span class="overlay-icon">⏸️</span>
+                            <h3>GAME PAUSED</h3>
+                            <p>Take a breath. Press Resume or Spacebar to continue.</p>
+                            <button id="snake-overlay-resume-btn" class="btn btn-primary" type="button">RESUME</button>
+                        </div>
+                    </div>
+
+                    <!-- Game Over Overlay -->
+                    <div id="snake-game-over-overlay" class="canvas-overlay hidden">
+                        <div class="overlay-inner">
+                            <h3 id="snake-game-over-title" class="result-title result-lose">GAME OVER!</h3>
+                            <div id="snake-new-highscore-badge" class="high-score-banner hidden">
+                                🌟 NEW HIGH SCORE! 🌟
+                            </div>
+                            <p class="final-score-text">Final Score: <strong id="snake-final-score" class="highlight-cyan">0</strong></p>
+                            <div class="modal-actions">
+                                <button id="snake-play-again-btn" class="btn btn-primary" type="button">Play Again</button>
+                                <button class="btn btn-secondary btn-home-nav" type="button">Home</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- On-Screen D-Pad for Mobile & Touch -->
+                <div class="dpad-container" aria-label="Touch Direction Controls">
+                    <div class="dpad-row">
+                        <button id="snake-btn-up" class="dpad-btn" type="button" aria-label="Move Up">▲</button>
+                    </div>
+                    <div class="dpad-row dpad-middle">
+                        <button id="snake-btn-left" class="dpad-btn" type="button" aria-label="Move Left">◀</button>
+                        <div class="dpad-center"></div>
+                        <button id="snake-btn-right" class="dpad-btn" type="button" aria-label="Move Right">▶</button>
+                    </div>
+                    <div class="dpad-row">
+                        <button id="snake-btn-down" class="dpad-btn" type="button" aria-label="Move Down">▼</button>
+                    </div>
+                </div>
+
+                <!-- Action Controls Toolbar -->
+                <div class="game-action-toolbar">
+                    <button id="snake-start-btn" class="btn btn-primary" type="button">
+                        <span>▶ Start Game</span>
+                    </button>
+                    <button id="snake-pause-btn" class="btn btn-secondary hidden" type="button">
+                        <span>⏸ Pause</span>
+                    </button>
+                    <button id="snake-resume-btn" class="btn btn-primary hidden" type="button">
+                        <span>▶ Resume</span>
+                    </button>
+                    <button id="snake-restart-btn" class="btn btn-secondary" type="button">
+                        <span>🔄 Restart</span>
+                    </button>
+                    <button id="snake-reset-scores-btn" class="btn btn-danger" type="button">
+                        <span>🗑️ Reset High Score</span>
+                    </button>
+                </div>
+            </section>
+
+
+            <!-- VIEW 4: ROCK PAPER SCISSORS -->
+            <section id="view-rps" class="view-section hidden">
+                <div class="game-header-bar">
+                    <button class="btn btn-secondary btn-home-nav" type="button">
+                        <span>🏠 Home</span>
+                    </button>
+                    <h2 class="game-header-title">ROCK PAPER SCISSORS</h2>
+                    <button class="btn btn-secondary" data-rules-for="rps" type="button">
+                        <span>ℹ️ How to Play</span>
+                    </button>
+                </div>
+
+                <!-- Game Mode Selector -->
+                <div class="game-dashboard">
+                    <div class="setting-group">
+                        <label class="setting-label">Game Mode:</label>
+                        <div class="button-toggle-group">
+                            <button id="rps-mode-pvc" class="toggle-btn active" type="button">vs Computer</button>
+                            <button id="rps-mode-pvp" class="toggle-btn" type="button">Two Players (Pass & Play)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RPS Scoreboard -->
+                <div class="scoreboard-container">
+                    <div class="score-card player-card">
+                        <span id="rps-score-label-1" class="score-name">YOU</span>
+                        <span id="rps-score-val-1" class="score-digits">0</span>
+                    </div>
+                    <div class="score-card draw-card">
+                        <span class="score-name">DRAWS</span>
+                        <span id="rps-score-val-draws" class="score-digits">0</span>
+                    </div>
+                    <div class="score-card opponent-card">
+                        <span id="rps-score-label-2" class="score-name">COMPUTER</span>
+                        <span id="rps-score-val-2" class="score-digits">0</span>
+                    </div>
+                </div>
+
+                <!-- Turn Instruction Banner -->
+                <div id="rps-turn-banner" class="turn-status-banner">
+                    <span>Choose your weapon to challenge the Computer</span>
+                </div>
+
+                <!-- Choice Selection Area (Hidden during handover or animated reveal) -->
+                <div id="rps-choices-container" class="rps-choices-grid">
+                    <button id="rps-choice-rock" class="rps-choice-card" type="button">
+                        <span class="rps-icon">✊</span>
+                        <span class="rps-title">ROCK</span>
+                        <span class="rps-sub">Beats Scissors</span>
+                    </button>
+                    <button id="rps-choice-paper" class="rps-choice-card" type="button">
+                        <span class="rps-icon">✋</span>
+                        <span class="rps-title">PAPER</span>
+                        <span class="rps-sub">Beats Rock</span>
+                    </button>
+                    <button id="rps-choice-scissors" class="rps-choice-card" type="button">
+                        <span class="rps-icon">✌️</span>
+                        <span class="rps-title">SCISSORS</span>
+                        <span class="rps-sub">Beats Paper</span>
+                    </button>
+                </div>
+
+                <!-- Handover Screen (For Two Players Mode) -->
+                <div id="rps-handover-container" class="handover-screen hidden">
+                    <div class="handover-box">
+                        <span class="handover-icon">📱</span>
+                        <h3 class="handover-title">PASS THE DEVICE TO PLAYER 2</h3>
+                        <p class="handover-desc">
+                            Player 1 has locked in their secret weapon! Hand over the device,
+                            ensure Player 1 is not looking, and click Continue below.
+                        </p>
+                        <button id="rps-handover-continue" class="btn btn-primary btn-large" type="button">
+                            <span>Continue to Player 2</span>
+                            <span class="btn-arrow">➔</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Battle Arena (Reveals weapons) -->
+                <div id="rps-battle-arena" class="rps-battle-arena hidden">
+                    <div class="arena-fighter fighter-left">
+                        <span id="rps-arena-p1-badge" class="fighter-badge">YOU</span>
+                        <div id="rps-arena-p1-icon" class="rps-arena-icon">✊</div>
+                        <span id="rps-arena-p1-label" class="fighter-name">Rock</span>
+                    </div>
+
+                    <div class="arena-vs">
+                        <span>VS</span>
+                    </div>
+
+                    <div class="arena-fighter fighter-right">
+                        <span id="rps-arena-p2-badge" class="fighter-badge">COMPUTER</span>
+                        <div id="rps-arena-p2-icon" class="rps-arena-icon">✊</div>
+                        <span id="rps-arena-p2-label" class="fighter-name">Rock</span>
+                    </div>
+                </div>
+
+                <!-- Round Result Message Box -->
+                <div id="rps-result-box" class="rps-result-panel hidden">
+                    <h3 id="rps-result-title" class="rps-result-title result-win">YOU WON!</h3>
+                    <p id="rps-result-desc" class="rps-result-desc">Rock crushes Scissors!</p>
+                    <div class="modal-actions">
+                        <button id="rps-play-again-btn" class="btn btn-primary" type="button">Play Again</button>
+                    </div>
+                </div>
+
+                <!-- Action Controls Toolbar -->
+                <div class="game-action-toolbar">
+                    <button id="rps-reset-scores-btn" class="btn btn-danger" type="button">
+                        <span>🗑️ Reset Scores</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- GLOBAL FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="brand-icon">🎮</span>
+                    <strong>MY GAME CENTRE</strong>
+                    <span>— Premium Web Gaming Portal</span>
+                </div>
+                <div class="footer-credits">
+                    <span>Designed with HTML5, CSS3 & Vanilla JavaScript. Offline ready.</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- REUSABLE MODAL: CONFIRMATION -->
+        <div id="modal-confirm" class="game-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+            <div class="modal-card">
+                <h3 id="confirm-title" class="modal-heading">Confirm Action</h3>
+                <p id="confirm-message" class="modal-body-text">Are you sure you want to proceed?</p>
+                <div class="modal-actions">
+                    <button id="confirm-btn-cancel" class="btn btn-secondary" type="button">Cancel</button>
+                    <button id="confirm-btn-ok" class="btn btn-danger" type="button">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- REUSABLE MODAL: HOW TO PLAY / RULES -->
+        <div id="modal-rules" class="game-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+            <div class="modal-card modal-large">
+                <h3 id="rules-title" class="modal-heading">Game Rules</h3>
+                <div id="rules-content" class="modal-body-content">
+                    <!-- Dynamic rules content inserted here -->
+                </div>
+                <div class="modal-actions">
+                    <button id="rules-close-btn" class="btn btn-primary" type="button">Got it!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- REUSABLE MODAL: ALL-TIME STATS -->
+        <div id="modal-stats" class="game-modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="stats-title">
+            <div class="modal-card modal-large">
+                <h3 id="stats-title" class="modal-heading">📊 MY GAME CENTRE — ALL-TIME STATS</h3>
+                <div id="stats-content" class="stats-overview-grid">
+                    <!-- Dynamic stats content inserted here -->
+                </div>
+                <div class="modal-actions">
+                    <button id="stats-reset-all-btn" class="btn btn-danger" type="button">Reset All Statistics</button>
+                    <button id="stats-close-btn" class="btn btn-secondary" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOAST NOTIFICATION -->
+        <div id="toast-notification" class="toast-pill hidden" role="status" aria-live="polite"></div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/tictactoe.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/rps.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
